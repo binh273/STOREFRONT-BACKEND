@@ -98,8 +98,8 @@ const update = async (req: Request, res: Response) => {
 const product_routers = (app: express.Application) => {
   app.post('/products',verifyToken, create);
   app.put('/products/:id',verifyToken, update);
-  app.get('/products/:id',verifyToken, getById);
-  app.get('/products',verifyToken, getAll);
+  app.get('/products/:id', getById);
+  app.get('/products', getAll);
   app.delete('/products/:id',verifyToken, deleteById);
 };
 

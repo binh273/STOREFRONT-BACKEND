@@ -4,6 +4,7 @@ import { Orders } from '../models/orders';
 import { Products } from '../models/product';
 import { totalIncrease, totalReduced } from '../helpers/count_price';
 import { checkOrderItems } from '../utiliti/checkInput';
+import { verifyToken } from '../middleware/verifyToken';
 
 const store = new Order_items();
 const orders = new Orders();
@@ -151,11 +152,11 @@ const updateById = async (req: Request, res: Response) => {
 };
 
 const order_items = (app: express.Application) => {
-  app.post('/orderitems', create);
-  app.delete('/orderitems/:id', deleteById);
-  app.get('/orderitems', getAll);
-  app.get('/orderitems/:id', getById);
-  app.put('/orderitems/:id', updateById);
+  app.post('/orderitems',verifyToken, create);
+  app.delete('/orderitems/:id',verifyToken, deleteById);
+  app.get('/orderitems',verifyToken, getAll);
+  app.get('/orderitems/:id',verifyToken, getById);
+  app.put('/orderitems/:id',verifyToken, updateById);
 };
 
 export default order_items;

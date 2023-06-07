@@ -94,11 +94,11 @@ const updateById = async (req: Request, res: Response) => {
   }
 };
 const orders_Router = (app: express.Application) => {
-  app.post('/orders', create);
-  app.delete('/orders/:id', deleteById);
-  app.put('/orders/:id', updateById);
-  app.get('/orders', getAll);
-  app.get('/orders/:id', getById);
+  app.post('/orders',verifyToken, create);
+  app.delete('/orders/:id',verifyToken, deleteById);
+  app.put('/orders/:id',verifyToken, updateById);
+  app.get('/orders',verifyToken, getAll);
+  app.get('/orders/:id',verifyToken, getById);
 };
 
 export default orders_Router;

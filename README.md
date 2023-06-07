@@ -23,14 +23,14 @@ create file database.json file and copy content to file
     "dev": {
       "driver": "pg",
       "host": "127.0.0.1",
-      "database": "storefront",
+      "database": "storefront_dev",
       "user": "admin",
       "password": "postgres"
     },
-    "test": {
+    "prod": {
       "driver": "pg",
       "host": "127.0.0.1",
-      "database": "admin",
+      "database": "storefront",
       "user": "admin",
       "password": "postgres"
     }
@@ -39,8 +39,10 @@ create file database.json file and copy content to file
 ## Environment
 
 create file .env file and copy content to file
+
 POSTGRES_HOST=127.0.0.1
 POSTGRES_DB=storefront
+POSTGRES_DB_DEV=storefront_dev
 POSTGRES_USER=admin
 POSTGRES_PASSWORD=postgres
 ENV=dev
