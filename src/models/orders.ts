@@ -3,8 +3,8 @@ import Client from '../database';
 export type Order = {
   id?: number;
   user_id: number;
-  order_date: string;
-  total_amount: number;
+  order_date: string | Date;
+  total_amount: number | string;
 };
 
 export class Orders {
@@ -32,7 +32,6 @@ export class Orders {
       const sql = 'SELECT * FROM orders';
       const conn = await Client.connect();
       const result = await conn.query(sql);
-
       conn.release();
       return result.rows;
     } catch (error) {

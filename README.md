@@ -19,18 +19,19 @@ npm install
 ## database.json
 
 create file database.json file and copy content to file
+
 {
-    "prod": {
-      "driver": "pg",
-      "host": "127.0.0.1",
-      "database": "storefront",
-      "user": "admin",
-      "password": "postgres"
-    },
     "dev": {
       "driver": "pg",
       "host": "127.0.0.1",
       "database": "storefront_dev",
+      "user": "admin",
+      "password": "postgres"
+    },
+    "test": {
+      "driver": "pg",
+      "host": "127.0.0.1",
+      "database": "storefront",
       "user": "admin",
       "password": "postgres"
     }
@@ -40,12 +41,12 @@ create file database.json file and copy content to file
 
 create file .env file and copy content to file
 
+ENV=test
 POSTGRES_HOST=127.0.0.1
 POSTGRES_DB=storefront
-POSTGRES_DB_DEV=storefront_dev
 POSTGRES_USER=admin
 POSTGRES_PASSWORD=postgres
-ENV=dev
+POSTGRES_DEV_DB=storefront_dev
 BCRYPT_PASSWORD=binhnnt-Storefront
 SALT_ROUNDS=10
 TOKEN_SECRET=StorefrontBackend

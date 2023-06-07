@@ -25,7 +25,7 @@ const create = async (req: Request, res: Response) => {
         res.status(404).json('Could not get order id or product id');
       } else {
         order.total_amount = await totalIncrease(
-          order.total_amount,
+          +order.total_amount,
           order_item.quantity,
           +product.price,
         );
@@ -80,7 +80,7 @@ const deleteById = async (req: Request, res: Response) => {
     const product = await products.getById(currentOrderItems.product_id);
 
     order.total_amount = await totalReduced(
-      order.total_amount,
+      +order.total_amount,
       currentOrderItems.quantity,
       +product.price,
     );
@@ -117,7 +117,7 @@ const updateById = async (req: Request, res: Response) => {
         res.status(404).json('Could not get order id or product id');
       } else {
         orderOld.total_amount = await totalReduced(
-          orderOld.total_amount,
+          +orderOld.total_amount,
           currentOrderItems.quantity,
           +productOld.price,
         );
@@ -127,7 +127,7 @@ const updateById = async (req: Request, res: Response) => {
         const product = await products.getById(order_item.product_id);
 
         order.total_amount = await totalIncrease(
-          order.total_amount,
+          +order.total_amount,
           order_item.quantity,
           +product.price,
         );

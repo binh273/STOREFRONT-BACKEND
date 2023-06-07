@@ -8,12 +8,9 @@
     "jasmine": "jasmine",
     "prettier": "prettier --config .prettierrc src/**/*.ts --write",
     "lint": "eslint . --ext .ts",
-    "test": "npm run build && jasmine",
+    "test": "npm run build && db-migrate up --env test && jasmine ",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./build --onSuccess \"node ./build/server.js'",
-    "start": "nodemon src/server.ts",
-    "db-migrateup": "db-migrate --env dev up",
-    "db-migratereset": "db-migrate --env dev reset",
-    "runall": "npm run build && db-migrateup && jasmine && db-migratereset"
+    "start": "nodemon src/server.ts"
   },
   "keywords": [],
   "author": "",

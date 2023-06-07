@@ -17,7 +17,7 @@ const create = async (req: Request, res: Response) => {
     if(check){
       const createOrder = await orders.create(order);
       if (createOrder != undefined) {
-        res.json(createOrder);
+        res.status(200).json(createOrder);
       } else {
         res.status(400).json('Could not create order');
       }
@@ -48,7 +48,7 @@ const getById = async (req: Request, res: Response) => {
   try {
     const showOne = await orders.getById(Number(req.params.id));
     if (showOne != undefined) {
-      res.json(showOne);
+      res.status(200).json(showOne);
     } else {
       res.status(400).json('Could not get order');
     }
@@ -62,7 +62,7 @@ const deleteById = async (req: Request, res: Response) => {
   try {
     const order = await orders.deleteById(Number(req.params.id));
     if (order != undefined) {
-      res.json(order);
+      res.status(200).json(order);
     } else {
       res.status(400).json('Could not delete order');
     }
@@ -84,7 +84,7 @@ const updateById = async (req: Request, res: Response) => {
   try {
     const createOrder = await orders.updateById(order);
     if (createOrder != undefined) {
-      res.json(createOrder);
+      res.status(200).json(createOrder);
     } else {
       res.status(400).json('Could not update order');
     }

@@ -83,7 +83,6 @@ export class Products {
 
   async update(product: Product): Promise<Product> {
     try {
-      console.log(product)
       const sql = `UPDATE products SET name = $1, description = $2, price = $3, link_image = $4 WHERE id = $5 RETURNING id,name,description,price,link_image`;
       const conn = await Client.connect();
       const result = await conn.query(sql, [
@@ -93,7 +92,6 @@ export class Products {
         product.link_image,
         product.id,
       ]);
-      console.log(result)
       conn.release();
       const productResult = result.rows[0];
       return productResult;
