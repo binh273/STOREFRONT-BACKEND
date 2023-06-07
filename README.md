@@ -94,13 +94,15 @@ docker-compose up
 
 ## Running the Project
 
-To run db-migrate up , run the following commands:
-
-npm run db-migrateup
-
 To run the project, run the following commands:
 
 npm run start
+
+## Running DB-migrete up 
+
+To run db-migrate up , run the following commands:
+
+npm run db-migrateup
 
 ## Running Tests
 
