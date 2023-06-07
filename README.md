@@ -20,17 +20,17 @@ npm install
 
 create file database.json file and copy content to file
 {
+    "test": {
+      "driver": "pg",
+      "host": "127.0.0.1",
+      "database": "storefront",
+      "user": "admin",
+      "password": "postgres"
+    },
     "dev": {
       "driver": "pg",
       "host": "127.0.0.1",
       "database": "storefront_dev",
-      "user": "admin",
-      "password": "postgres"
-    },
-    "prod": {
-      "driver": "pg",
-      "host": "127.0.0.1",
-      "database": "storefront",
       "user": "admin",
       "password": "postgres"
     }
@@ -53,6 +53,7 @@ TOKEN_SECRET=StorefrontBackend
 ## docker compose file
 
 create file docker compose.yml file and copy content to file
+
 version: '3.9'
 
 services:
@@ -62,6 +63,7 @@ services:
     environment:
       POSTGRES_USER : admin 
       POSTGRES_PASSWORD : postgres
+      POSTGRES_DB : storefront_dev
     ports:
       - '5432:5432'
     env_file:
@@ -91,6 +93,10 @@ To run the project, run the following commands:
 docker-compose up
 
 ## Running the Project
+
+To run db-migrate up , run the following commands:
+
+npm run db-migrateup
 
 To run the project, run the following commands:
 
