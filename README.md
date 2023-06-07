@@ -20,7 +20,7 @@ npm install
 
 create file database.json file and copy content to file
 {
-    "test": {
+    "prod": {
       "driver": "pg",
       "host": "127.0.0.1",
       "database": "storefront",
